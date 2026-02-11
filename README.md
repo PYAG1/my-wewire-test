@@ -1,6 +1,6 @@
 # WeWire Take-Home Test - Wallet App
 
-This is a React Native wallet management app built with Expo, TypeScript, and Expo Router for file-based routing.
+This is a React Native wallet management app built with Expo SDK 54, TypeScript, and Expo Router for file-based routing.
 
 ## Features
 
@@ -23,7 +23,7 @@ This is a React Native wallet management app built with Expo, TypeScript, and Ex
 2. Install dependencies
 
    ```bash
-   npx expo install or npm install
+    npm install
    ```
 
 3. Start the app
