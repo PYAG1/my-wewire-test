@@ -1,4 +1,5 @@
 import { Transaction, Wallet } from "@/types";
+export const ICON_SIZE = 24;
 
 export const MOCK_WALLETS: Wallet[] = [
   {
