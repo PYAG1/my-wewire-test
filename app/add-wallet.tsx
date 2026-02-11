@@ -14,7 +14,15 @@ import { Picker } from "@react-native-picker/picker";
 import { router } from "expo-router";
 import { CloseCircle } from "iconsax-react-nativejs";
 import { Controller, useForm } from "react-hook-form";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function AddWallet() {
   const { addWallet } = useWallets();
@@ -26,21 +34,24 @@ export default function AddWallet() {
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm({
+  } = useForm<{ name: string; currency: Currency }>({
     resolver: zodResolver(AddWalletSchema),
     defaultValues: {
       name: "",
-      currency: "USD",
+      currency: "USD" as Currency,
     },
   });
 
   async function onSubmit(data: { name: string; currency: Currency }) {
-    addWallet({
+    const newWalletId = addWallet({
       name: data.name,
       currency: data.currency,
       balance: "0.00",
     });
-    router.back();
+    router.replace({
+      pathname: "/wallets/[id]",
+      params: { id: newWalletId },
+    });
   }
 
   console.log(watch());
@@ -64,8 +75,15 @@ export default function AddWallet() {
         </Pressable>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.form}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View style={styles.form}>
           <Input
             control={control}
             name="name"
@@ -119,7 +137,8 @@ export default function AddWallet() {
             Create Wallet
           </Button>
         </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </ThemedView>
   );
 }

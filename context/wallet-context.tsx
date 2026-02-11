@@ -22,6 +22,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
       id: Date.now().toString(),
     };
     setWallets((prev) => [...prev, newWallet]);
+    return newWallet.id;
   }, []);
 
   const value = useMemo(

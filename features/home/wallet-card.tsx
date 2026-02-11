@@ -40,7 +40,7 @@ export default function WalletCard({
         <Text
           style={{
             color: colors.textSecondary,
-            fontSize: 12,
+            fontSize: 16,
             fontWeight: "600",
           }}
         >
