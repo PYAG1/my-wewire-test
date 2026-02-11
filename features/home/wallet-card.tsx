@@ -5,7 +5,7 @@ import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { getCountryCode } from "@/lib/utils";
 import { WalletCardProps } from "@/types";
-import { Text, View, ViewStyle } from "react-native";
+import { Pressable, Text, View, ViewStyle } from "react-native";
 import CountryFlag from "react-native-country-flag";
 
 export default function WalletCard({
@@ -13,6 +13,7 @@ export default function WalletCard({
   amount,
   fullWidth = false,
   currency,
+  onPress,
 }: Readonly<WalletCardProps>) {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? "light"];
@@ -28,8 +29,8 @@ export default function WalletCard({
     backgroundColor: colors.backgroundSecondary,
   };
 
-  return (
-    <View style={cardStyle}>
+  const cardContent = (
+    <>
       <View
         style={{
           flexDirection: "row",
@@ -73,6 +74,16 @@ export default function WalletCard({
       >
         {amount}
       </Text>
-    </View>
+    </>
   );
+
+  if (onPress) {
+    return (
+      <Pressable onPress={onPress} style={cardStyle}>
+        {cardContent}
+      </Pressable>
+    );
+  }
+
+  return <View style={cardStyle}>{cardContent}</View>;
 }

@@ -2,6 +2,7 @@ import { ThemedText } from "@/components/themed-text";
 import { ICON_SIZE } from "@/constants/data";
 import { sizes } from "@/constants/dimensions";
 import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 import { useThemeColor } from "@/hooks/use-theme-color";
 import { router } from "expo-router";
 import {
@@ -16,6 +17,8 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 export default function HomeActions() {
   const backgroundColor = useThemeColor({}, "background");
   const backgroundSecondary = useThemeColor({}, "backgroundSecondary");
+  const colorScheme = useColorScheme();
+  const colors = Colors[colorScheme ?? "light"];
 
   const actions = [
     {
@@ -62,10 +65,13 @@ export default function HomeActions() {
           <View
             style={[
               styles.iconContainer,
-              { backgroundColor: backgroundSecondary },
+              {
+                backgroundColor: backgroundSecondary,
+                borderColor: colors.inputBorder,
+              },
             ]}
           >
-            <action.icon size={ICON_SIZE} color={Colors.light.text} />
+            <action.icon size={ICON_SIZE} color={colors.text} />
           </View>
           <ThemedText style={styles.label}>{action.label}</ThemedText>
         </TouchableOpacity>
@@ -89,11 +95,10 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 48,
     height: 48,
-    borderRadius: 24, // Circle
+    borderRadius: 24,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#E5E7EB", // Light gray border like screenshot
   },
   label: {
     fontSize: sizes.fontSize[1], // 12

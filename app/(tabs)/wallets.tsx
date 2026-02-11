@@ -7,6 +7,7 @@ import { useWallets } from "@/context/wallet-context";
 import WalletCard from "@/features/home/wallet-card";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { formatCurrency } from "@/lib/utils";
+import { useRouter } from "expo-router";
 import { SearchNormal1 } from "iconsax-react-nativejs";
 import { useState } from "react";
 import { FlatList, StyleSheet, TextInput, View } from "react-native";
@@ -16,6 +17,7 @@ export default function WalletsScreen() {
   const [searchQuery, setSearchQuery] = useState("");
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? "light"];
+  const router = useRouter();
 
   const filteredWallets = wallets.filter((wallet) => {
     const query = searchQuery.toLowerCase();
@@ -86,6 +88,12 @@ export default function WalletsScreen() {
               amount={formatCurrency(item.balance, item.currency)}
               fullWidth
               currency={item.currency}
+              onPress={() =>
+                router.navigate({
+                  pathname: "/wallets/[id]",
+                  params: { id: item.id },
+                })
+              }
             />
           )}
           showsVerticalScrollIndicator={false}
