@@ -99,12 +99,12 @@ To learn more about developing your project with Expo, look at the following res
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
   
 ## Screenshots
-![screen6](https://github.com/user-attachments/assets/f741772c-6719-4b4f-b79a-f06846fa8dca)
-![screen5](https://github.com/user-attachments/assets/07a1eb29-8c92-4b21-b9ae-e933173bdeb0)
-![screen4](https://github.com/user-attachments/assets/fbcb7a0e-844d-451c-b876-31e2902a0d61)
-![screen3](https://github.com/user-attachments/assets/e828526d-553d-4cd4-b071-eaa9fff385e3)
-![screen2](https://github.com/user-attachments/assets/ba66a641-368f-4b85-abfc-0ba843ef1471)
 ![screen1](https://github.com/user-attachments/assets/8a86f37f-2e34-4683-9a7e-79fbd7c68fae)
+![screen2](https://github.com/user-attachments/assets/ba66a641-368f-4b85-abfc-0ba843ef1471)
+![screen3](https://github.com/user-attachments/assets/e828526d-553d-4cd4-b071-eaa9fff385e3)
+![screen4](https://github.com/user-attachments/assets/fbcb7a0e-844d-451c-b876-31e2902a0d61)
+![screen5](https://github.com/user-attachments/assets/07a1eb29-8c92-4b21-b9ae-e933173bdeb0)
+![screen6](https://github.com/user-attachments/assets/f741772c-6719-4b4f-b79a-f06846fa8dca)
 
 
 
