@@ -12,3 +12,8 @@ export interface Transaction {
   amount: string;
   date: string;
 }
+
+export interface WalletContextType {
+  wallets: Wallet[];
+  addWallet: (wallet: Omit<Wallet, "id">) => void;
+}
