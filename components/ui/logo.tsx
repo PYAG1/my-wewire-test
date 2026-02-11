@@ -4,14 +4,26 @@ import Svg, { ClipPath, Defs, G, Path, Rect, SvgProps } from "react-native-svg";
 interface LogoProps extends SvgProps {
   hideText?: boolean;
   textColor?: string;
+  width?: number;
+  height?: number;
 }
 
 const Logo = ({
   hideText = false,
   textColor = "black",
+  width: customWidth,
+  height: customHeight,
   ...props
-}: LogoProps) => (
-  <Svg width={180} height={32} viewBox="0 0 180 32" fill="none" {...props}>
+}: LogoProps) => {
+  const defaultWidth = hideText ? 52 : 180;
+  const defaultHeight = 32;
+
+  const width = customWidth ?? defaultWidth;
+  const height = customHeight ?? defaultHeight;
+  const viewBox = hideText ? "0 0 52 32" : "0 0 180 32";
+
+  return (
+    <Svg width={width} height={height} viewBox={viewBox} fill="none" {...props}>
     <G clipPath="url(#clip0_839_62899)">
       <Path
         d="M45.2558 0.51864C45.2558 0.682861 45.178 0.824033 45.0628 0.919109L45.0167 0.953681L0.806699 31.9079C0.726029 31.9626 0.625191 31.9972 0.518592 31.9972C0.230485 31.9972 0 31.7667 0 31.4815C0 31.3777 0.0288107 31.2827 0.086432 31.202C0.086432 31.1991 0.0893131 31.1933 0.0893131 31.1905C0.118124 31.1617 0.149815 31.1271 0.178626 31.0868C2.13199 28.7733 8.58558 20.1589 6.39309 9.61417C5.60367 5.81116 3.92113 2.86671 2.46043 0.884536C2.44026 0.855725 2.41721 0.824033 2.39128 0.795223C2.33943 0.717434 2.31062 0.622359 2.31062 0.521522C2.31062 0.233415 2.5411 0.00292969 2.82921 0.00292969H44.7314C45.0195 0.00292969 45.25 0.233415 45.25 0.521522L45.2558 0.51864Z"
@@ -60,5 +72,6 @@ const Logo = ({
       </ClipPath>
     </Defs>
   </Svg>
-);
+  );
+};
 export default Logo;

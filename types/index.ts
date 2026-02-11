@@ -1,7 +1,9 @@
+import { Currency } from "@/lib/schemas";
+
 export interface Wallet {
   id: string;
   name: string;
-  currency: string;
+  currency: Currency;
   balance: string;
 }
 
@@ -16,4 +18,11 @@ export interface Transaction {
 export interface WalletContextType {
   wallets: Wallet[];
   addWallet: (wallet: Omit<Wallet, "id">) => void;
+}
+
+export interface WalletCardProps {
+  title: string;
+  amount: string;
+  fullWidth?: boolean;
+  currency?: string;
 }
