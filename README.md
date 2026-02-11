@@ -16,7 +16,7 @@ This is a React Native wallet management app built with Expo, TypeScript, and Ex
 1. Install dependencies
 
    ```bash
-   npm install
+   npx expo install or npm install
    ```
 
 2. Start the app
@@ -75,9 +75,6 @@ The "Total Balance" shown on the Home screen is calculated by **summing the nume
 - Savings: EUR 3,400.50
 - Travel: GBP 580.25
 - **Total: $5,230.75** (simple sum, no currency conversion)
-
-In a production app, this would require exchange rate conversion to a base currency.
-
 ## Technologies Used
 
 - **Expo Router**: File-based routing for React Native
@@ -86,16 +83,22 @@ In a production app, this would require exchange rate conversion to a base curre
 - **React Context API**: State management for wallets and transactions
 - **Iconsax React Native**: Icon library for UI elements
 
+
 ## Learn more
 
 To learn more about developing your project with Expo, look at the following resources:
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  
+## Screenshots
+![screen6](https://github.com/user-attachments/assets/f741772c-6719-4b4f-b79a-f06846fa8dca)
+![screen5](https://github.com/user-attachments/assets/07a1eb29-8c92-4b21-b9ae-e933173bdeb0)
+![screen4](https://github.com/user-attachments/assets/fbcb7a0e-844d-451c-b876-31e2902a0d61)
+![screen3](https://github.com/user-attachments/assets/e828526d-553d-4cd4-b071-eaa9fff385e3)
+![screen2](https://github.com/user-attachments/assets/ba66a641-368f-4b85-abfc-0ba843ef1471)
+![screen1](https://github.com/user-attachments/assets/8a86f37f-2e34-4683-9a7e-79fbd7c68fae)
 
-## Join the community
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
