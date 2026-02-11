@@ -13,13 +13,20 @@ This is a React Native wallet management app built with Expo, TypeScript, and Ex
 
 ## Get started
 
-1. Install dependencies
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/PYAG1/my-wewire-test.git
+   cd my-wewire-test
+   ```
+
+2. Install dependencies
 
    ```bash
    npx expo install or npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
    npx expo start
