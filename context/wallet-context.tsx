@@ -1,5 +1,5 @@
-import { MOCK_WALLETS } from "@/constants/data";
-import { Wallet, WalletContextType } from "@/types";
+import { MOCK_TRANSACTIONS, MOCK_WALLETS } from "@/constants/data";
+import { Transaction, Wallet, WalletContextType } from "@/types";
 import {
   createContext,
   ReactNode,
@@ -13,6 +13,8 @@ const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
 export function WalletProvider({ children }: { children: ReactNode }) {
   const [wallets, setWallets] = useState<Wallet[]>(MOCK_WALLETS);
+  const [transactions, setTransactions] =
+    useState<Transaction[]>(MOCK_TRANSACTIONS);
 
   const addWallet = useCallback((wallet: Omit<Wallet, "id">) => {
     const newWallet: Wallet = {
@@ -25,9 +27,10 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   const value = useMemo(
     () => ({
       wallets,
+      transactions,
       addWallet,
     }),
-    [wallets, addWallet],
+    [wallets, transactions, addWallet],
   );
 
   return (

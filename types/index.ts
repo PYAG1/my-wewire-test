@@ -17,6 +17,7 @@ export interface Transaction {
 
 export interface WalletContextType {
   wallets: Wallet[];
+  transactions: Transaction[];
   addWallet: (wallet: Omit<Wallet, "id">) => void;
 }
 
@@ -25,4 +26,13 @@ export interface WalletCardProps {
   amount: string;
   fullWidth?: boolean;
   currency?: string;
+  walletId?: string;
+  onPress?: () => void;
+}
+
+export interface CurrencyInfo {
+  value: Currency;
+  label: string;
+  symbol: string;
+  countryCode: string;
 }

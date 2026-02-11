@@ -1,16 +1,31 @@
+import { CurrencyInfo } from "@/types";
 import { Currency } from "./schemas";
 
+export const CURRENCY_CONFIG: Record<Currency, CurrencyInfo> = {
+  USD: {
+    value: "USD",
+    label: "US Dollar",
+    symbol: "$",
+    countryCode: "us",
+  },
+  EUR: {
+    value: "EUR",
+    label: "Euro",
+    symbol: "€",
+    countryCode: "eu",
+  },
+  GBP: {
+    value: "GBP",
+    label: "British Pound",
+    symbol: "£",
+    countryCode: "gb",
+  },
+};
+
+export const CURRENCY_OPTIONS = Object.values(CURRENCY_CONFIG);
+
 export function getCurrencySymbol(currency: Currency): string {
-  switch (currency) {
-    case "USD":
-      return "$";
-    case "EUR":
-      return "€";
-    case "GBP":
-      return "£";
-    default:
-      return "$";
-  }
+  return CURRENCY_CONFIG[currency]?.symbol ?? "$";
 }
 
 export function formatCurrency(amount: string, currency: Currency): string {
@@ -18,15 +33,6 @@ export function formatCurrency(amount: string, currency: Currency): string {
   return `${symbol} ${amount}`;
 }
 
-export const getCountryCode = (currencyCode: string) => {
-  switch (currencyCode) {
-    case "USD":
-      return "us";
-    case "EUR":
-      return "eu";
-    case "GBP":
-      return "gb";
-    default:
-      return "us";
-  }
-};
+export function getCountryCode(currencyCode: string): string {
+  return CURRENCY_CONFIG[currencyCode as Currency]?.countryCode ?? "us";
+}
